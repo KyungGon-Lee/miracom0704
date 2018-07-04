@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<meta charset=UTF-8>
+<head>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      var a = [{value:10, age:12},{value:30, age:7}, {value:20, age:2}];
+
+      a.sort(function(a,b){
+        return a.age > b.age ? 1 : -1;
+      });
+
+      console.log(a[0]);
+      console.log(a[1]);
+      console.log(a[2]);
+
+
+      var b = [10, 4, 5, 7];
+
+
+      // each( b, function(x){return x*x;} );
+      // function each (arr, fun){
+      //   for(var i = 0; i < arr.length; i++)
+      //     b[i] = fun(b[i]);
+      // }
+
+      each( b, function(index, x1){
+        return (index %2 ==0) ? x1 : x1*x1;
+      });
+      function each (arr, fun){
+        for(var i = 0; i < arr.length; i++)
+          arr[i] = fun(i, arr[i]);
+      }
+
+
+      console.log(b[0]);
+      console.log(b[1]);
+      console.log(b[2]);
+      console.log(b[3]);
+
+    });
+
+
+    </script>
+</head>
+<body>
+
+</body>
+
+</html>

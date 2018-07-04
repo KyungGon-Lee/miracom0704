@@ -5,9 +5,40 @@
 	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script>
         $(document).ready(function () {
-            $('h1').css('background', 'Orange').filter(':even').css('color', 'White')
-			.filter(':odd').css('color', 'Red');
+            $('h1').css('background', 'Orange')
+            .filter(':even').css('color', 'White').end()
+			      .filter(':odd').css('color', 'Red');
+      // 필터에 또 필터해서 원하는 대로 나오지 않음 그래서 end()로 필터 두번안되게 취소해줌
+      $('h1').click(function(){
+
+
+      });
+
+      // $('h1').bind("mouseenter", function(){
+      //   $(this).css("background", "black");
+      // });
+      //
+      // $('h1').bind("mouseleave", function(){
+      //   $(this).css("background", "orange");
+      // });
+
+      // $('h1').bind({
+      //   mouseenter : function(){
+      //     $(this).css("background", "black");
+      //   },
+      //   mouseleave : function(){
+      //     $(this).css("background", "orange");
+      //   }
+      //   });
+
+        $('h1').hover(function(){
+          $(this).css("background", "black");
+        },function(){
+          $(this).css("background", "orange");
         });
+
+
+      });
     </script>
 </head>
 <body>
@@ -19,7 +50,7 @@
 		<h1>Header-4</h1>
 		<h1>Header-5</h1>
 		<h1>Header-6</h1>
-		
+
     </div>
 </body>
 
