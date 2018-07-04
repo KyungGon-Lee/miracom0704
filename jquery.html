@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+    <meta charset="utf-8">
+    <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+
+    <script>
+    $(document).ready(function(){
+      // alert('ok');
+      $("#msg1").html("change~~~~");
+      // $("#msg2").hide();
+      // $("p").hide();
+      $("#msg1").css("color", "blue");
+      $("#msg2").css("color", "red");
+      $("p").css("color", "green");
+      // $("#img1").src = "2.jpg"; // 이거 안됨
+      $("#img1").attr("src", "3.jpg");
+      // alert( $("#img1").attr("src", "3.jpg"); );
+
+      $("#btn1").click(function(){
+          alert(
+            $("input[name=icon]:checked").val()
+          );
+      });
+
+      setTimeout( fun1 , 3000);
+
+      function fun1(){
+        alert('ok');
+      }
+
+      alert('test~~');
+
+    });
+    </script>
+
+    <div id=msg1>111</div>
+    <div id=msg2>222</div>
+    <p> item1 </p>
+    <p> item2 </p>
+    <p> item3 </p>
+    <img src=1.png id=img1>
+
+    <input type=radio name=icon value=1>  icon1
+    <input type=radio name=icon value=2 checked>  icon2
+    <input type=radio name=icon value=3>  icon3
+    <button id=btn1> get </button>
+
+</html>

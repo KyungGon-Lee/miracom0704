@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+   <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script>
+        $(document).ready(function () {
+            var object = { name: 'TestName' };
+            $.extend(object, {
+                gender: 'Male',
+                part: 'Second Guitar'
+            });
+
+            var output = '';
+            $.each(object, function (key, item) {
+                output += key + ': ' + item + '\n';
+            });
+            alert(output);
+        });
+</script>
+
+</head>
+<body>
+</body>
+
+
+</html>

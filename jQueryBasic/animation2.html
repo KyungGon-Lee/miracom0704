@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style>
+#pic_univ {
+			float: left;
+			margin-right: 10px;
+			margin-bottom: 10px;
+			-webkit-transition-property: width;
+			-webkit-transition-duration: 3s;
+}
+
+#pic_univ:hover {
+    width: 300px;
+}
+
+.small {
+   width: 30%;
+}
+.large {
+   width: 70%;
+}
+.bold_style {
+   font-weight: bold;
+   color: #950000;
+}
+</style>
+<script src="http://code.jquery.com/jquery-1.7.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		// 처음 flag값을 false로 초기화 시킴
+		$("#pic_univ").attr("state", "small");
+
+		// flag 값에 따라 스타일을 small과 large를 교환하며 적용
+		$("#pic_univ").click(function() {
+			var state = $("#pic_univ").attr("state");
+			if (state == "small") {
+				$("#pic_univ").removeClass("small");
+				$("#pic_univ").addClass("large");
+				$("#pic_univ").attr("state", "large");
+			} else {
+				$("#pic_univ").removeClass("large");
+				$("#pic_univ").addClass("small");
+				$("#pic_univ").attr("state", "small");
+			}
+			;
+		});
+	});
+</script>
+</head>
+<body>
+
+  <h1>대학교 소개</h1>
+ 	<img class="small"  id="pic_univ" src="../../image/univ.jpg" alt="">
+   <h2>"<span class="bold_style">시대정신</span>을 선도하는 열린 <span class="bold_style">학문 공동체</span> 입니다. </h2>
+			<p>버추어 대학교는 세계에서 가장 선도적인 대학교 중의 하나로 인정받고 있습니다. 설립목적은 사회와 개인에 직접적인 기여와 성공을 준비할 수 있도록 하는 것입니다. 궁극적으로는 인류문명에 유용한 인재를 양성하는 것입니다. 오늘날 버추얼 대학교는 현재 인류가 당면하고 있는 여러 문제를 해결하고 다음 세대를 선도할 수 있는 리더가 될 수 있도록 학생들을 준비시키는 것입니다. </p>
+			<p>여러분의 미래를 버추얼 대학교에서 함께하시길 희망합니다. </p>
+			<p>총창 Luke Andrew</p>
+  
+
+</body>
+
+</html>
+
+
+

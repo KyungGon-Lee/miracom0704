@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<meta charset=UTF-8>
+<head>
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script>
+        $(document).ready(function () {
+            var array = [
+                { name: 'Hanbit Media', link: 'http://hanb.co.kr' },
+                { name: 'Naver', link: 'http://naver.com' },
+                { name: 'Daum', link: 'http://daum.net' },
+                { name: 'Paran', link: 'http://paran.com' }
+            ];
+
+            // var output = '';
+            //
+            // for(var i = 0; i < 4; i++){
+            //   output += "<a href=" + array[i].link + ">" + array[i].name + "</a><br>"
+            // }
+            //
+            // document.body.innerHTML += output;
+
+            $.each(array, function (index, item) {
+                var output = '';
+                output += '<a href="' + item.link + '">';
+                output += ' <h1>' + item.name + '</h1>';
+                output += '</a>';
+                document.body.innerHTML += output;
+            }); //output이지역변수라 innerHTML 밖으로 빼면 안됨 그리고 + 빼면 누적이 안되서 제일 마지막꺼만 나옴
+
+        });
+</script>
+
+</head>
+<body>
+
+
+</body>
+
+
+</html>

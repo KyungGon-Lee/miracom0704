@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+ <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+
+	var firstline = document.querySelector("textarea").value.split("\n")[0];
+	
+	var result = document.querySelector("dl.result");
+	var first_result = result.querySelector("dd:nth-child(2)");
+	
+	if(first_result)
+		first_result.style.display="none";
+	
+	var dt = document.createElement("dt");
+	dt.textContent = firstLine;
+	var dd = document.createElement("dd");
+	dd.innerHTML = data;
+	
+	var first_dt = first_result.previousSibling;
+	result.insertBefore(dd, first_dt);
+	result.insertBefore(dt, dd);
+
+</script>
+<script type="text/javascript">
+	
+	var firstline = $("textarea").val().split("\n")[0];
+	
+	$("dl.result").find("dd:nth-child(2)").hide().end().prepend("<dd>"+data+"</dd>", $("<dt>").text(firstline));
+
+</script>
+</head>
+
+<body>
+<textarea>
+This is text1
+This is text2
+</textarea>
+<dl class='result'>
+
+</dl>
+	
+
+</body>
+</html>

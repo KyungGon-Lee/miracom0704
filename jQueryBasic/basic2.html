@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../jquery-3.1.1.js"></script>
+<script type="text/javascript">
+
+	$(function() {
+		var contentData = "asdfasfasdf dasf";
+		
+		$("p.content").html(contentData).show();
+		$("div.preview, div.comment, aside").hide();
+			
+	});
+	
+</script>
+</head>
+<body>
+	<p class="content">paragraph content</p>
+	<div class="preview">Preview</div>
+	<div class="comment">Comment</div>
+	<aside>광고</aside>
+</body>
+</html>

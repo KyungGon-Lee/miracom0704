@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../jquery-3.1.1.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function() {
+		 $("div #btn1").click(function(){
+		        $("#div1 > p").html("Hello <b>world!</b>");
+		    });
+		 
+		 $("div #btn2").click(function(){
+		        $("#div2 p:first").addClass("intro");
+		       
+		    });
+	});
+
+
+</script>
+</head>
+<body>
+<div id="div1">
+	<button id="btn1">Change content of all p elements</button>
+	
+	<p>This is a paragraph.</p>
+	<p>This is another paragraph.</p>
+	<h1>This is a heading</h1>
+</div>
+<div id="div2">
+
+	<p>This is a paragraph.</p>
+	<p>This is another paragraph.</p>
+
+	<button id="btn2">Add a class name to the first p element</button>
+	
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../../jquery-3.1.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("img.icon").bind("click", function(e) {
+			alert(this.src);
+			$(this).addClass("select");
+		});		
+	});
+
+</script> 
+</head>
+<body>
+
+	<img class="icon" src="../image/mydesktop.jpg" width=200px height=200px/>
+	<img class="icon" src="../image/controlPanel.jpg" width=200px height=200px />
+	<img class="icon" src="../image/monday.jpg" width=200px height=200px />
+	
+
+</body>
+</html>

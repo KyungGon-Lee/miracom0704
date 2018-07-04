@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+           // $('input[data=hello]').val('Hello!'); //일치하면
+        // $('input[data*=hello]').val('Hello2!');		//hello를 포함하고 있으면..
+            $('input[data~=hello]').val('Hello3!');    //hello를 단어로써 포함하고 있으면 선택
+        });
+    </script>
+</head>
+<body>
+
+<input type=text data="hello" />
+<input type=text data="123hello123" />
+<input type=text data="123 hello 123" />
+
+</body>
+
+</html>
