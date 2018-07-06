@@ -8,7 +8,7 @@
   <h1>영화 제목 : </h1>
   <input type=text id=answer class="form-control-lg">
   <button onclick=clickAnswer() class="btn btn-primary">answer</button><br><br>
-  <div id="msg">
+  <div id="msg1"></div>
 
   <script>
   var imgs = ["영화/내머리속의지우개.jpg",
@@ -43,10 +43,11 @@
       if(answer == answers[problems[idx]]){
         idx++;
         document.getElementById("img1").src = imgs[problems[idx]];
+        document.getElementById("msg1").innerHTML = "와아앙 정답";
         document.getElementById("answer").value = "";
         document.getElementById("answer").focus();
       }else{
-        document.getElementById("msg").innerHTMLs = "ㅠㅠ";
+        document.getElementById("msg1").innerHTML = "ㅠㅠ";
         document.getElementById("answer").value = "";
         document.getElementById("answer").focus();
       }

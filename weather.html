@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+
+
+	$(document).ready(function(){
+
+
+		$("#go").click( function() {
+			//var lat = 37.276101;   // 위도
+			//var lon = 127.130824;  // 경도
+			var lat = $("#lat").val();
+			var lon = $("#lon").val();
+
+			var url = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&APPID=342bd9672f19bbc63b63ec3b629cb610"
+			alert(url);
+			$.ajax({
+				url:url,
+				success:function(data){
+					$("#weather").html(data.weather[0].description);
+					$("#temp").html(data.main.temp);
+					$("#humidity").html(data.main.humidity);
+					$("#icon").attr("src", "http://openweathermap.org/img/w/" +  data.weather[0].icon + ".png");
+				}
+			});
+		});
+
+	});
+
+</script>
+</head>
+
+
+<body>
+
+위도 <input type=text size=10 id=lat>    경도 <input type=text size=10 id=lon>     <button id=go> 날씨</button> <br>
+
+오늘의날씨 <div id=weather>     </div> <img id=icon width=50 height=50/> <br>
+온도 <div id=temp>     </div> <br>
+습도 <div id=humidity>     </div> <br>
+
+</body>
+
+
+</html>

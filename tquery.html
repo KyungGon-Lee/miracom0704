@@ -1,0 +1,156 @@
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+
+
+<script>
+
+_tQuery = {
+    ready : function( anonymous) {
+	   this.ready = anonymous;   
+	}
+};
+
+window.onload = function()  {
+   _tQuery.ready();
+}
+
+function tElement(obj)  {   
+	this.obj = obj;
+
+
+	this.html = function() {
+
+	    if ( arguments.length == 1 ) {
+			this.obj.innerHTML = arguments[0];
+	    }   
+		return this.obj.innerHTML;			
+		
+	}
+
+	this.click = function(f) {
+		this.obj.addEventListener("click", f)
+	};
+
+	this.css = function(name, value) {
+
+        if ( typeof(this.obj.length) == "undefined") {		
+		    var att = this.obj.getAttribute('style');
+			if ( att == null ) att = "";
+			this.obj.setAttribute("style",  att + name + ":"  + value + ";");
+			return this;
+	    } else {
+			for(i = 0 ; i < this.obj.length; i++) {
+			    var att = this.obj[i].getAttribute('style');
+				if ( att == null ) att = "";
+				this.obj[i].setAttribute("style",  att + name + ":"  + value + ";");
+			}
+			return this;
+		}
+	}
+
+	this.filter = function( anonymous ) {  
+
+	   var o = [];
+
+		for(i = 0 ; i < this.obj.length; i++) {
+		   if (  anonymous(i) == true  )   {			
+              o.push(this.obj[i]);                           
+		   }
+		}
+		return new tElement(o);
+	};
+};
+
+
+function tQuery(doc) {
+
+  if ( typeof doc === 'string' || doc instanceof String )
+  {
+    if ( doc[0] == '#' )    {
+	    id = doc.substring(1, 100);
+		return  new tElement(document.getElementById(id));
+    } else 
+	if ( doc[0] == '.' ) {
+	    id = doc.substring(1, 100);
+		return  new tElement(document.getElementsByClassName(id));
+	} else {
+		return  new tElement(document.getElementsByTagName(doc));
+	}
+  }
+  return _tQuery;
+}
+
+tQuery.filter = function( arr,  anonymous ) {  
+	   var o = [];
+		for(i = 0 ; i < arr.length; i++) {
+		   if (  anonymous(i, arr[i]) == true  )   {			
+              o.push(arr[i]);                           
+		   }
+		}
+		return o;
+};
+
+
+$ = tQuery;
+
+</script>
+<script>
+$(document).ready( function() {
+
+	 alert($("#label").html());   // document.getEle   .innerHTML
+
+	 $("#label").html("안녕하세요.");
+
+	 $("#btn").click( function() { 
+			alert("버튼이 눌러졌습니다.");
+	 } );
+
+
+     $("#label").css("background-color", "red");
+	 $("#label2").css("background-color", "red").css("color", "yellow");
+	 $("div").css("color", "orange");
+
+
+	 $(".btn").css("color", "red").css("width", "70px").css("height", "70px");
+
+
+	 $("li").filter( function(index) {
+			return index % 2 == 0;
+	 }).css("color", "blue").css("background-color", "teal");
+	 
+	 
+	 
+	var obj = [10,20,{'age':20},50,60]; 			
+	var obj2 = $.filter(obj,  function(index, item) {
+			return index %2 == 0;
+	});
+			
+	alert(obj2[1].age);
+
+
+	 
+  }
+);
+
+
+</script>
+
+
+<div id="label">  hello </div>
+<button id=btn>btn1</button>
+
+<div > test</div>
+<div id="label2"> test message</div>
+
+<ul>
+<li>11111111</li> 
+<li>2222222</li> 
+<li>333333</li> 
+<li>44444</li> 
+</ul>
+
+<button class="btn" > btn2 </button>
+<button class="btn" > btn3 </button>
+<button class="btn" > btn4 </button>

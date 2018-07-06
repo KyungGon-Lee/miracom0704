@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello, React</title>
+    
+    <style>    
+     .main { background-color: gray; }
+     .sub { color: yellow; }    
+    </style>
+  </head>
+  <body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <script src="https://fb.me/react-15.0.1.js"></script>
+    <script src="https://fb.me/react-dom-15.0.1.js"></script>
+
+
+    <script type="text/babel">
+
+		class Hello extends React.Component {
+
+		  constructor(){
+    		super();
+    		this.state = { data: [1,2,4,20,5]}
+			this.handleClick = this.handleClick.bind(this);
+  		  }
+ 
+		  handleClick() {             
+				this.setState({data:[45,22,98] });
+		  }	
+
+
+		  render() {
+            var list = [];
+		    for(var i =0 ; i < this.state.data.length; i++) 
+			    list.push(<li>{this.state.data[i]}</li>);
+    		return ( 
+      			<div className="main">
+				   <button onClick={this.handleClick}>call</button>
+					<ul>
+				   {list}
+					</ul>	
+      			</div>
+	    	);
+  		  }
+	    }
+
+	ReactDOM.render(<div><Hello /><Hello /></div>, document.getElementById("example"));
+
+</script>
+    
+
+<div id="example"></div>
+
+
+    
+  </body>
+</html>
+
+
+
+

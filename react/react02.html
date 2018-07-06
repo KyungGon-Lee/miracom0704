@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello, React</title>
+
+    <style>
+     .main { background-color: gray; }
+     .sub { color: yellow; }
+    </style>
+  </head>
+  <body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <script src="https://fb.me/react-15.0.1.js"></script>
+    <script src="https://fb.me/react-dom-15.0.1.js"></script>
+
+
+    <script type="text/babel">
+
+		class Sub extends React.Component {
+		  render() {
+    		return (<div className="sub">  item  </div>);
+		  }
+		}
+
+		class Hello extends React.Component {
+		  render() {
+    		return (
+      			<div className="main">
+          			  Hello !!!
+					<Sub/><Sub/><Sub/>
+      			</div>
+	    	);
+  		  }
+	    }
+
+	ReactDOM.render(<Hello />, document.getElementById("example"));
+
+</script>
+
+
+<div id="example"></div>
+
+
+
+  </body>
+</html>

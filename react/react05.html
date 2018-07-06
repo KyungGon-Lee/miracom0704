@@ -1,0 +1,85 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello, React</title>
+
+    <style>
+     .main { background-color: gray; }
+     .sub { color: yellow; }
+    </style>
+  </head>
+  <body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <script src="https://fb.me/react-15.0.1.js"></script>
+    <script src="https://fb.me/react-dom-15.0.1.js"></script>
+
+
+	<script>
+	function shuffle(a) {
+	    var j, x, i;
+	    for (i = a.length; i; i--) {
+	        j = Math.floor(Math.random() * i);
+	        x = a[i - 1];
+	        a[i - 1] = a[j];
+	        a[j] = x;
+	    }
+	}
+
+	var imgs = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg"];
+	var imgs_answer = ["11", "22", "33", "44", "55"];
+	var idxs = [0,1,2,3,4];
+	var idx = 0;
+	//shuffle(idxs);
+
+
+	</script>
+
+    <script type="text/babel">
+
+
+		class Hello extends React.Component {
+
+		  constructor(){
+    		super();
+    		this.state = { src: imgs[idxs[idx]], msg:"", answer:""}
+  		  }
+
+
+		  onChange(event) {
+    		this.setState({answer: event.target.value})
+  		  }
+
+		  handleClick(event) {
+
+   				if ( this.state.answer == imgs_answer[idxs[idx]]  ) {
+					idx++;
+					this.setState({ src:imgs[idxs[idx]]});
+					this.setState({ msg:"good~~~", answer:""});
+                } else {
+					this.setState({ msg:"no~~~", answer:""});
+				}
+				this.refs.refText.focus();
+		  }
+
+
+		  render() {
+    		return (
+				<div>
+					You  knmwo me <br/>
+					<img src={this.state.src} width="300" height="300" /> <br/>
+					<input ref="refText" type="text" value={this.state.answer}  onChange={this.onChange.bind(this)} /> <button onClick={this.handleClick.bind(this)}>Answer!</button>
+					<div>{this.state.msg}</div>
+				</div>
+            );
+  		  }
+     }
+
+	ReactDOM.render(<Hello />, document.getElementById("example"));
+
+</script>
+
+
+<div id="example"></div>
+ </body>
+</html>
