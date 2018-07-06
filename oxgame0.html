@@ -7,6 +7,7 @@
     <script>
       $(document).ready(function(){
         function move(){
+<<<<<<< HEAD
           	
         	
           for(i=0;i<5;i++){
@@ -21,6 +22,18 @@
              });
             //$("#msg1").css({left:x, top:y, position: "absolute"});
           
+=======
+          for(i=0;i<5;i++){
+            var x = Math.random() * 400 + 40;
+            var y = Math.random() * 400 + 40;
+            var imgs = ["msg1", "msg2", "msg3", "msg4", "msg5"];
+            var img = imgs[i];
+            var ox = Math.random();
+            $(img).each(function(){
+              $(img).css.({left:x, top:y, position: "absolute"});
+            });
+
+>>>>>>> e86e037709a575aba9fcba5c8010ed08ae01b740
             $(img).html((Math.random))
               if(ox > 0.5){
                 document.getElementById(img).src = "1.png"
@@ -31,7 +44,11 @@
               }
           }
         };
+<<<<<<< HEAD
         setInterval(move, 1000);
+=======
+        setInterval(move, 150);
+>>>>>>> e86e037709a575aba9fcba5c8010ed08ae01b740
         // $("imgs".css({left:x, top:y, position: "absolute"});).each();
         $(img).click( function(){
           alert(this.value);

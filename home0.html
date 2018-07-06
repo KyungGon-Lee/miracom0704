@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+  <head>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+</head><body>~~~~~ homepage <br>
+<img src="1.jpg"> <br>
+
+
+  username <input type="text" id="username">  <br>
+  pwd <input type="password" id="pwd">  <br>
+  <button id="login">login</button>
+
+
+   <div>
+      오늘의 날씨(서울) <br>
+
+      <table border="1">
+         <tbody><tr>
+            <td> 날씨 </td>
+            <td>  <span id="weather">light rain</span>   </td>
+         </tr>
+
+         <tr>
+            <td> 온도 </td>
+            <td>  <span id="temp">298.214</span>   </td>
+         </tr>
+         <tr>
+             <td> 습도 </td>  <td>  <span id="humidity">97</span>   </td>
+         </tr>
+      </tbody></table>
+   </div>
+
+   <div>
+      오늘의 날씨(해외) <br>
+
+      <table border="1">
+         <tbody><tr>
+            <td> 날씨 </td>
+            <td>  <span id="weather2"></span>   </td>
+         </tr>
+
+         <tr>
+            <td> 온도 </td>
+            <td>  <span id="temp2"></span>   </td>
+         </tr>
+         <tr>
+             <td> 습도 </td>  <td>  <span id="humidity2"></span>   </td>
+         </tr>
+      </tbody></table>
+   </div>
+
+
+<script>
+
+  function displayWeather(lat, lon, weather, temp, humidity) {
+		var url = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&APPID=342bd9672f19bbc63b63ec3b629cb610"
+		console.log(url);
+		$.ajax({
+			url:url,
+			success:function(data){
+				$(weather).text(data.weather[0].description);
+				$(temp).text(data.main.temp);
+				$(humidity).text(data.main.humidity);
+			}
+		});
+  }
+
+  $(document).ready( function() {
+	  displayWeather(32.323232, 127.232323,
+			  "#weather", "#temp", "#humidity");
+	  displayWeather(33.323232, 126.232323,
+			  "#weather2", "#temp2", "#humidity2")
+
+	   $("#login").click( function() {
+		   var username = $('#username').val();
+		   var pwd = $('#pwd').val();
+
+		   var http = "login.jsp?username=" + username + "&pwd=" + pwd;
+		   console.log(http);
+		   $.ajax({
+	            url: http,
+	            dataType:'json',
+	            success:function(data){
+	            	if ( data.msg == "ok" )
+	            		location.href = "service.html";
+	            	else {
+	            		alert('id/pwd 확인');
+	            		$('#username').val("");
+	            		$('#pwd').val("");
+	            		$('#username').focus();
+	            	}
+
+	            }
+	       });
+	   });
+   });
+
+
+</script>

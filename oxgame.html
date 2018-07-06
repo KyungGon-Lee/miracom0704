@@ -16,9 +16,14 @@
             var img = imgs[i];
             var ox = Math.random();
             // $("img".css).each()
+<<<<<<< HEAD
             $("img").css({left:xys, top:y, position: "absolute"});
             
             $("img").html((Math.random))
+=======
+            $("img".css).each({left:x, top:y, position: "absolute"});
+            $(img).html((Math.random))
+>>>>>>> e86e037709a575aba9fcba5c8010ed08ae01b740
               if(ox > 0.5){
                 document.getElementById(img).src = "1.png"
                 document.getElementById(img).value = "ㅜㅜ"
@@ -28,7 +33,11 @@
               }
           }
         };
+<<<<<<< HEAD
         setInterval(move, 1500);
+=======
+        setInterval(move, 150);
+>>>>>>> e86e037709a575aba9fcba5c8010ed08ae01b740
 
         $(img).click( function(){
           alert(this.value);
