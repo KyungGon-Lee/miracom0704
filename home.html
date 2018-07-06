@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+  <head>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    와와왕 homepage<br>
+    <img src=3.jpg><br>
+      username : <input type=text id=username><br>
+      pwd : <input type=password id=pwd><br>
+      <button id=login>login</button>
+
+      <div>
+        오늘의 날씨(서울)<br>
+        <table border=1>
+          <tr>
+            <td> 날씨 </td>
+            <td><span id=weather></span></td>
+          </tr>
+          <tr>
+            <td> 온도 </td>
+            <td><span id=temp></span></td>
+          </tr>
+          <tr>
+            <td> 습도 </td>
+            <td><span id=humidity></span></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+         오늘의 날씨(해외) <br>
+         <table border="1">
+            <tbody><tr>
+               <td> 날씨 </td>
+               <td>  <span id="weather2"></span>   </td>
+            </tr>
+
+            <tr>
+               <td> 온도 </td>
+               <td>  <span id="temp2"></span>   </td>
+            </tr>
+            <tr>
+                <td> 습도 </td>  <td>  <span id="humidity2"></span>   </td>
+            </tr>
+         </tbody></table>
+      </div>
+
+<script>
+function displayWeather(lat, lon, weather, temp, humidity){
+ var url = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&APPID=342bd9672f19bbc63b63ec3b629cb610";
+    $.ajax({
+    url:url,
+    success:function(data){
+      $(weather).html(data.weather[0].description);
+      $(temp).html(data.main.temp);
+      $(humidity).html(data.main.humidity);
+    }
+  });
+}
+
+  $(document).ready(function() {
+    displayWeather(32, 20, "#weather", "#temp", "#humidity");
+    displayWeather(52, 40, "#weather2", "#temp2", "#humidity2")
+
+    $("#login").click(function(){
+      var username = $("#username").val();
+      var pwd = $("#pwd").val();
+      var http = "login.jsp?username=" + username + "&pwd=" + pwd;
+
+      $.ajax({
+        url: http,
+        dataType : 'json', //리턴되는게 원래는 문자열인데 이걸 써주면 자동으로 자바스크립트 오브젝트로 바꿔줌
+        success:function(data){
+          // alert(data); // data는 오브젝트전송함 ok데이터전송 안됨
+          // alert(data.msg); // data.msg는 ok 또는 no 전송
+          if(data.msg == "ok")
+          location.href = "service.html";
+          else{
+            alert('id/pwd 확인하세요');
+            $("#username").val("");
+            $("#pwd").val("");
+            $("#username").focus();
+          }
+          console.log(data);
+        }
+      });
+
+    });
+  });
+</script>
+
+  </body>
+</html>

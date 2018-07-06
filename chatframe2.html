@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <meta charset="utf-8">
+  <body>
+    <script type="text/javascript"> // 쿼리셀렉터 쓰려면 타입을 자바스크립트로 해줘야 함
+    $(document).ready(function(){
+      $("#msg").keypress(function(event){
+        if(event.which == 13){
+          var chat = "<img src=" +
+           document.querySelector('input[name=icon]:checked').value +
+          " width=30 height=30>" + $("#msg").val();
+          var url = 'chat2.jsp?msg=' + chat;
+          $.ajax({
+                url:url,
+                success:function(data){
+                  $("#msg").val("");
+                }
+          });
+        }
+      });
+
+      setInterval(function(){
+        var url = 'chat2.jsp';
+        $.ajax({
+          url:"chat2.jsp",
+          success:function(data){
+            $('#view').html(data);
+            $('#view').scrollTop($('#view')
+                      .prop("scrollHeight"));
+          }
+        })
+      }, 1000);
+    });
+    </script>
+
+    <div style=
+      'background-color:yellow;height:280px;width=100%;overflow-y:auto'
+      id='view'>
+    </div>
+
+    <input type="radio" name="icon" value="1.png" id="1"> <img src="1.png" width="30" height="30">
+    <input type="radio" name="icon" value="2.png" id="2"> <img src="2.png" width="30" height="30">
+    <input type="radio" name="icon" value="3.jpg" id="3" checked> <img src="3.jpg" width="30" height="30">
+
+    <textarea type="text" size=40 name=msg id=msg></textarea>
+
+
+</html>

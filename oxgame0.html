@@ -13,8 +13,10 @@
             var imgs = ["msg1", "msg2", "msg3", "msg4", "msg5"];
             var img = imgs[i];
             var ox = Math.random();
-            // $("img".css).each()
-            $("img".css).each({left:x, top:y, position: "absolute"});
+            $(img).each(function(){
+              $(img).css.({left:x, top:y, position: "absolute"});
+            });
+
             $(img).html((Math.random))
               if(ox > 0.5){
                 document.getElementById(img).src = "1.png"
@@ -26,7 +28,7 @@
           }
         };
         setInterval(move, 150);
-
+        // $("imgs".css({left:x, top:y, position: "absolute"});).each();
         $(img).click( function(){
           alert(this.value);
         });
