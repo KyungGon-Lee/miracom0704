@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	import="java.sql.*"
     pageEncoding="EUC-KR"%>
@@ -28,18 +27,6 @@
 	conn.close();
 	if(count >= 1) session.setAttribute("id", id);
 	
-	%>{"msg":"<%=count>=1?"ok":"no" %>"}
+	%>
+{"msg":"<%=count>=1?"ok":"no" %>"}
 
-=======
-<%@ page language="java" contentType="text/json; charset=UTF-8"
-    pageEncoding="UTF-8" %>
-
-<%
-String username = request.getParameter("username");
-String pwd = request.getParameter("pwd");
-String msg = "";
-if(username.equals(pwd)) msg = "ok";
-else msg = "no";
-%>
-{"msg" : "<%=msg%>"}
->>>>>>> e86e037709a575aba9fcba5c8010ed08ae01b740
