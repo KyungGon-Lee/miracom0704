@@ -20,19 +20,12 @@
             var imgs = ["msg1", "msg2", "msg3", "msg4", "msg5"];
             var img = imgs[i];
             var ox = Math.random();
-            var xy = ["100", "200", "300", "400", "500"];
-            var xys = xy[i];
-            
             
             $("#msg1").css({left:x1, top:y1, position: "absolute"});
             $("#msg2").css({left:x2, top:y2, position: "absolute"});
             $("#msg3").css({left:x3, top:y3, position: "absolute"});
             $("#msg4").css({left:x4, top:y4, position: "absolute"});
             $("#msg5").css({left:x5, top:y5, position: "absolute"});
-            
-            
-            
-            //document.getElementById("msg1").css = {left:x, top:y, position: "absolute"};
             
             
             $(img).html(Math.random)
@@ -46,25 +39,22 @@
           };
         };
 
-        setInterval(move, 25);
+        setInterval(move, 50);
 
-        // $("imgs".css({left:x, top:y, position: "absolute"});).each();
         $(img).click(function(){
           alert(this.value);
         });
-         //여기선 "red" 이렇게 해줘야함 왜냐하면 밸류가오는자리이기 때문에
-         // ""안하면 레드라고하는 글로벌 변수로 인식함
 
       });
     </script>
 </head>
 <body>
 
-    <img id=msg1 name=img width="250" height="250">
-    <img id=msg2 name=img width="250" height="250">
-    <img id=msg3 name=img width="250" height="250">
-    <img id=msg4 name=img width="250" height="250">
-    <img id=msg5 name=img width="250" height="250">
+    <img id=msg1 name=img width="100" height="100">
+    <img id=msg2 name=img width="100" height="100">
+    <img id=msg3 name=img width="100" height="100">
+    <img id=msg4 name=img width="100" height="100">
+    <img id=msg5 name=img width="100" height="100">
 </body>
 
 </html>

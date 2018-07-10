@@ -9,11 +9,7 @@
 
     와와왕 homepage<br>
     <img src=3.jpg><br>
-<<<<<<< HEAD
       username : <input type=text id=id><br>
-=======
-      username : <input type=text id=username><br>
->>>>>>> e86e037709a575aba9fcba5c8010ed08ae01b740
       pwd : <input type=password id=pwd><br>
       <button id=login>login</button>
 
@@ -51,10 +47,7 @@
             </tr>
          </tbody></table>
       </div>
-<<<<<<< HEAD
       <a href=registerform.jsp>회원가입</a>
-=======
->>>>>>> e86e037709a575aba9fcba5c8010ed08ae01b740
 
 <script>
 function displayWeather(lat, lon, weather, temp, humidity){
@@ -68,17 +61,13 @@ function displayWeather(lat, lon, weather, temp, humidity){
     }
   });
 }
-
   $(document).ready(function() {
     displayWeather(32, 20, "#weather", "#temp", "#humidity");
     displayWeather(52, 40, "#weather2", "#temp2", "#humidity2")
-
-<<<<<<< HEAD
 	 
 	   $("#login").click( function() {
 		   var id = $('#id').val();
 		   var pwd = $('#pwd').val();
-
 		   var http = "login.jsp?id=" + id + "&pwd=" + pwd;
 		   console.log(http);
 		   $.ajax({
@@ -96,42 +85,8 @@ function displayWeather(lat, lon, weather, temp, humidity){
 	            		$('#pwd').val("");
 	            		$('#id').focus();
 	            	}
-
 	            }
 	       });
 	   });
    });
-
-
 </script>
-=======
-    $("#login").click(function(){
-      var username = $("#username").val();
-      var pwd = $("#pwd").val();
-      var http = "login.jsp?username=" + username + "&pwd=" + pwd;
-
-      $.ajax({
-        url: http,
-        dataType : 'json', //리턴되는게 원래는 문자열인데 이걸 써주면 자동으로 자바스크립트 오브젝트로 바꿔줌
-        success:function(data){
-          // alert(data); // data는 오브젝트전송함 ok데이터전송 안됨
-          // alert(data.msg); // data.msg는 ok 또는 no 전송
-          if(data.msg == "ok")
-          location.href = "service.html";
-          else{
-            alert('id/pwd 확인하세요');
-            $("#username").val("");
-            $("#pwd").val("");
-            $("#username").focus();
-          }
-          console.log(data);
-        }
-      });
-
-    });
-  });
-</script>
-
-  </body>
-</html>
->>>>>>> e86e037709a575aba9fcba5c8010ed08ae01b740

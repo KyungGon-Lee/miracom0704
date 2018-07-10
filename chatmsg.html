@@ -1,11 +1,10 @@
 <html>
 <form id="form1" action="chat.jsp">
-<body>
 <input type="radio" name="icon" value="1.png" id="1"> <img src="1.png" width="30" height="30">
 <input type="radio" name="icon" value="2.png" id="2"> <img src="2.png" width="30" height="30">
 <input type="radio" name="icon" value="3.jpg" id="3" checked> <img src="3.jpg" width="30" height="30">
 <input type="text" size=40 name=msg id=msg>
-<button onclick="sendMsg()"/> send </button>
+<button onclick="sendMsg()"> send </button>
 </form>
 <script type="text/javascript">
 function sendMsg(){
@@ -31,5 +30,4 @@ function sendMsg(){
    return true;
 }
 </script>
-</body>
 </html>
